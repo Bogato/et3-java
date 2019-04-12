@@ -32,16 +32,20 @@ public class WordCount {
     }
 
     public ArrayList<Map.Entry<String, Long>> sort() {
-        ArrayList<Map.Entry<String, Long>> sorted =
+        ArrayList<Map.Entry<String, Long>> list =
                 new ArrayList<>(freqs.entrySet());
 
-        sorted.sort(new Comparator<Map.Entry<String, Long>>() {
-            public int compare(Map.Entry<String, Long> e1, Map.Entry<String, Long> e2) {
-               return e2.getValue().compareTo(e1.getValue());
-            }
-        });
+        Comparator<Map.Entry<String, Long>> comparator =
+                new Comparator<Map.Entry<String, Long>>() {
+                    @Override
+                    public int compare(Map.Entry<String, Long> e1, Map.Entry<String, Long> e2) {
+                        return e2.getValue().compareTo(e1.getValue());
+                    }
+                };
 
-        return sorted;
+        list.sort(comparator);
+
+        return list;
     }
 
     public ArrayList<Map.Entry<String, Long>> lambdaSort() {

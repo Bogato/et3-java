@@ -2,6 +2,7 @@ package ups.utils;
 
 import java.util.Arrays;
 
+/** Array utils */
 public class ArrayInt {
     /**
      * Create an array of integers from an array of String.

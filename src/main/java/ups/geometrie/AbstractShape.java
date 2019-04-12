@@ -24,6 +24,10 @@ public abstract class AbstractShape implements ShapeTranform {
         return new Point(center);
     }
 
+    public Point getCenterRef() {
+        return center;
+    }
+
     public void setCenter(Point center) {
         // Same as getCenter(), assign a copy of the point or else our point could be modified from outside !
         this.center = new Point(center);
@@ -38,7 +42,7 @@ public abstract class AbstractShape implements ShapeTranform {
     }
 
     public void translate(int dx, int dy) {
-        center = new Point(center.x + dx, center.y + dy);
+        center.translate(dx, dy);
     }
 
     public void translate(Point p) {
